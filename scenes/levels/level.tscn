@@ -1,25 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj3n6xn3r0ri2"]
+[gd_scene load_steps=4 format=3 uid="uid://cj3n6xn3r0ri2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_l7ysw"]
-[ext_resource type="PackedScene" uid="uid://cr1gniwwxfsvd" path="res://scenes/objects/box.tscn" id="4_p28d1"]
+[ext_resource type="PackedScene" uid="uid://cn0m8ullqi8js" path="res://scenes/objects/gate.tscn" id="2_0bgki"]
 [ext_resource type="PackedScene" uid="uid://c064j18p8ia5l" path="res://scenes/player/player.tscn" id="4_pf1ik"]
-[ext_resource type="PackedScene" uid="uid://wgm2r5us16mf" path="res://scenes/enemies/drone.tscn" id="5_1xhin"]
-[ext_resource type="PackedScene" uid="uid://cqodfsh5ntfig" path="res://scenes/objects/bed.tscn" id="5_3ipx0"]
-[ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="6_riiip"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_l7ysw")
 
-[node name="Bed" parent="." instance=ExtResource("5_3ipx0")]
-position = Vector2(788, 21)
-rotation = 0.359538
+[node name="Gate" parent="." instance=ExtResource("2_0bgki")]
+position = Vector2(499, -569)
 
 [node name="Player" parent="." instance=ExtResource("4_pf1ik")]
-position = Vector2(429, 213)
+position = Vector2(537, 522)
 
-[node name="box" parent="." instance=ExtResource("4_p28d1")]
-position = Vector2(908, 671)
-
-[node name="drone" parent="." instance=ExtResource("5_1xhin")]
-position = Vector2(111, 391)
-script = ExtResource("6_riiip")
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="shoot_laser" from="Player" to="." method="_on_player_shoot_laser"]
+[connection signal="throw_grenade" from="Player" to="." method="_on_player_throw_grenade"]
