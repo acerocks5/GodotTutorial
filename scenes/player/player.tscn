@@ -1,12 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://c064j18p8ia5l"]
+[gd_scene load_steps=8 format=3 uid="uid://c064j18p8ia5l"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_jtyxg"]
 [ext_resource type="Texture2D" uid="uid://bisj877grd153" path="res://graphics/player/player.png" id="1_l52eq"]
+[ext_resource type="Texture2D" uid="uid://b4ytsqt83n6gh" path="res://graphics/decals/white.png" id="3_atigb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mrv2x"]
 radius = 63.0317
 
+[sub_resource type="Gradient" id="Gradient_x0j75"]
+colors = PackedColorArray(0, 0.788235, 0.937255, 0.45098, 0, 1, 1, 0.231373)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0om61"]
+gradient = SubResource("Gradient_x0j75")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fmyug"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 8.0
+spread = 20.0
+initial_velocity_min = 250.0
+initial_velocity_max = 500.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 2.5
+color = Color(0, 0.788235, 0.937255, 0.811765)
+color_ramp = SubResource("GradientTexture1D_0om61")
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 31
 script = ExtResource("1_jtyxg")
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
@@ -35,6 +56,15 @@ position = Vector2(127, 11)
 
 [node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(127, 27)
+
+[node name="LaserParticles" type="GPUParticles2D" parent="."]
+position = Vector2(132, 19)
+emitting = false
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_fmyug")
+texture = ExtResource("3_atigb")
+lifetime = 0.2
+one_shot = true
 
 [connection signal="timeout" from="Timer_laser" to="." method="_on_timer_laser_timeout"]
 [connection signal="timeout" from="Timer_grenade" to="." method="_on_timer_grenade_timeout"]
