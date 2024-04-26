@@ -1,115 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://cj3n6xn3r0ri2"]
+[gd_scene load_steps=3 format=3 uid="uid://cj3n6xn3r0ri2"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_l7ysw"]
-[ext_resource type="PackedScene" uid="uid://cn0m8ullqi8js" path="res://scenes/objects/gate.tscn" id="2_0bgki"]
-[ext_resource type="Texture2D" uid="uid://bchdnxmpfst46" path="res://graphics/decals/moss/moss_2.png" id="2_ha3g4"]
-[ext_resource type="Texture2D" uid="uid://c6aakqeouukfn" path="res://graphics/ground/stones.png" id="2_wvr0y"]
-[ext_resource type="Texture2D" uid="uid://64jgex5gi5o8" path="res://graphics/decals/dirt_patch.png" id="3_avdm5"]
 [ext_resource type="PackedScene" uid="uid://c064j18p8ia5l" path="res://scenes/player/player.tscn" id="4_pf1ik"]
-[ext_resource type="Texture2D" uid="uid://cmtk5dmuxk20d" path="res://graphics/decals/moss/moss_1.png" id="5_8fbg0"]
-[ext_resource type="Texture2D" uid="uid://dm42q8tqh7i2m" path="res://graphics/decals/moss/moss_3.png" id="6_aierh"]
-[ext_resource type="Texture2D" uid="uid://bbxddka8x3cco" path="res://graphics/decals/moss/moss_4.png" id="7_jqf85"]
-[ext_resource type="Texture2D" uid="uid://c725mbqj4qbln" path="res://graphics/decals/moss/moss_5.png" id="8_rcamy"]
-[ext_resource type="Texture2D" uid="uid://cw6qvw5ryrc20" path="res://graphics/tilesets/outside_walls.png" id="9_qs8x2"]
-[ext_resource type="Texture2D" uid="uid://ccso4vic3c7nj" path="res://graphics/tilesets/soil.png" id="10_c6x8k"]
-[ext_resource type="PackedScene" uid="uid://cv4bi05lbw3df" path="res://scenes/houses/house.tscn" id="11_qitp6"]
-[ext_resource type="PackedScene" uid="uid://ven6ysduf4bi" path="res://scenes/objects/steam_vent.tscn" id="12_m64iv"]
-[ext_resource type="PackedScene" uid="uid://ch05ufyfqau7o" path="res://scenes/objects/light_fan_animation.tscn" id="13_ujmka"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ocjot"]
-resource_name = "walls"
-texture = ExtResource("9_qs8x2")
-texture_region_size = Vector2i(390, 390)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-0:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h7n1i"]
-resource_name = "Soil"
-texture = ExtResource("10_c6x8k")
-texture_region_size = Vector2i(390, 390)
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_bedyk"]
-tile_size = Vector2i(390, 390)
-sources/0 = SubResource("TileSetAtlasSource_ocjot")
-sources/1 = SubResource("TileSetAtlasSource_h7n1i")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_l7ysw")
 
 [node name="Ground" type="Node2D" parent="."]
 
-[node name="Soil" type="Sprite2D" parent="Ground"]
-texture_repeat = 2
-position = Vector2(472, 436)
-texture = ExtResource("2_wvr0y")
-region_enabled = true
-region_rect = Rect2(-2267.62, -1259.67, 15000, 10000)
-
-[node name="Decoration" type="Sprite2D" parent="Ground"]
-modulate = Color(0.894118, 0.792157, 0.509804, 0.894118)
-position = Vector2(-347, 958)
-texture = ExtResource("3_avdm5")
-
-[node name="TileMap" type="TileMap" parent="Ground"]
-tile_set = SubResource("TileSet_bedyk")
-format = 2
-layer_0/name = "Soil"
-layer_0/tile_data = PackedInt32Array(-9, 65537, 2, -8, 65537, 2, -7, 65537, 2, -6, 65537, 2, -5, 65537, 2, -4, 131073, 2, -10, 1, 2, -65545, 65537, 1, -65544, 65537, 1, -65543, 65537, 1, -65542, 65537, 1, -65541, 65537, 1, -65540, 131073, 1, -131076, 131073, 1, -65546, 1, 1, -131082, 1, 1, -131081, 65537, 1, -131080, 65537, 1, -131079, 65537, 1, -131078, 65537, 1, -131077, 65537, 1, -196600, 65537, 1, -524280, 65537, 1, -458744, 65537, 1, -393208, 65537, 1, -327672, 65537, 1, -262136, 65537, 1, -524279, 65537, 1, -458743, 65537, 1, -393207, 65537, 1, -327671, 65537, 1, -262135, 65537, 1, -196599, 65537, 1, -524278, 65537, 1, -458742, 65537, 1, -393206, 65537, 1, -327670, 65537, 1, -262134, 65537, 1, -196598, 65537, 1, -524277, 65537, 1, -458741, 65537, 1, -393205, 65537, 1, -327669, 65537, 1, -262133, 65537, 1, -196597, 65537, 1, -524276, 65537, 1, -458740, 65537, 1, -393204, 65537, 1, -327668, 65537, 1, -262132, 65537, 1, -196596, 65537, 1, -524275, 65537, 1, -458739, 65537, 1, -393203, 65537, 1, -327667, 65537, 1, -262131, 65537, 1, -196595, 65537, 1, -524274, 65537, 1, -458738, 65537, 1, -393202, 65537, 1, -327666, 65537, 1, -262130, 65537, 1, -196594, 65537, 1, -524273, 65537, 1, -458737, 65537, 1, -393201, 65537, 1, -327665, 65537, 1, -262129, 65537, 1, -196593, 65537, 1, -131059, 65537, 1, -65523, 65537, 1, 13, 65537, 1, 65549, 65537, 1, 131085, 65537, 1, 196621, 65537, 1, 262157, 65537, 1, 327693, 65537, 1, -131058, 65537, 1, -65522, 65537, 1, 14, 65537, 1, 65550, 65537, 1, 131086, 65537, 1, 196622, 65537, 1, 262158, 65537, 1, 327694, 65537, 1, -131057, 65537, 1, -65521, 65537, 1, 15, 65537, 1, 65551, 65537, 1, 131087, 65537, 1, 196623, 65537, 1, 262159, 65537, 1, 327695, 65537, 1, -393200, 65537, 1, -327664, 65537, 1, -262128, 65537, 1, -196592, 65537, 1, -131056, 65537, 1, -65520, 65537, 1, 16, 65537, 1, 65552, 65537, 1, 131088, 65537, 1, 196624, 65537, 1, 262160, 65537, 1, 327696, 65537, 1, -524272, 65537, 1, -458736, 65537, 1, -524281, 65537, 1, -458745, 65537, 1, -393209, 65537, 1, -327673, 65537, 1, -131060, 65537, 1, -65524, 65537, 1, 12, 65537, 1, 65548, 65537, 1, 131084, 65537, 1, 196620, 65537, 1, 262156, 65537, 1, 327692, 65537, 1, -262137, 65537, 1, -196601, 65537, 1, -131065, 65537, 1, -131064, 65537, 1, -131063, 65537, 1, -131062, 65537, 1, -131061, 65537, 1, 11, 1, 1, 65547, 1, 1, 131083, 1, 1, 196619, 1, 1, 262155, 1, 1, 327691, 1, 1, -65529, 65537, 2, -65528, 65537, 2, -65527, 65537, 2, -65526, 65537, 2, -65525, 65537, 1, -327674, 1, 1, -262138, 1, 1, -196602, 1, 1, -131066, 1, 1, -65530, 1, 2, 131079, 1, 2, 65543, 1, 0, 131080, 131073, 2, 65544, 131073, 0, -524282, 1, 1, -458746, 1, 1, -393210, 1, 1)
-layer_1/name = "Walls"
-layer_1/tile_data = PackedInt32Array(-4, 131072, 0, -6, 65536, 0, -7, 65536, 0, -8, 65536, 0, -9, 65536, 0, -65530, 65536, 2, -131066, 0, 2, -196602, 0, 2, -262138, 0, 2, -65529, 65536, 0, -65527, 65536, 0, -65528, 65536, 0, -65526, 65536, 0, -65525, 131072, 1, 11, 0, 2, 65547, 0, 2, 131083, 0, 2, 196619, 0, 2, 262155, 0, 2, 327691, 0, 2, 65526, 0, 2, 131062, 0, 2, 196598, 0, 2, 262134, 0, 2, 327670, 0, 2, 393206, 0, 2, -10, 65536, 1, -5, 65536, 0, -524282, 0, 1, -458746, 0, 2, -393210, 0, 2, -327674, 0, 2)
-
-[node name="Moss1" type="Sprite2D" parent="Ground"]
-position = Vector2(4281, 123)
-texture = ExtResource("5_8fbg0")
-
-[node name="Moss2" type="Sprite2D" parent="Ground"]
-position = Vector2(4324, -9)
-texture = ExtResource("2_ha3g4")
-
-[node name="Moss3" type="Sprite2D" parent="Ground"]
-position = Vector2(4199, -71)
-texture = ExtResource("6_aierh")
-
-[node name="Moss4" type="Sprite2D" parent="Ground"]
-position = Vector2(3966, -30)
-texture = ExtResource("7_jqf85")
-
-[node name="Moss5" type="Sprite2D" parent="Ground"]
-position = Vector2(3751, -62)
-texture = ExtResource("8_rcamy")
-
-[node name="House" parent="Ground" instance=ExtResource("11_qitp6")]
-position = Vector2(958, 3472)
-rotation = -2.53596
-
-[node name="SteamVent" parent="Ground" instance=ExtResource("12_m64iv")]
-position = Vector2(189, 563)
-
-[node name="LightFanAnimation" parent="Ground" instance=ExtResource("13_ujmka")]
-position = Vector2(-913, 1511)
-autoplay = "default"
-frame = 9
-frame_progress = 0.227423
-
-[node name="Gate" parent="." instance=ExtResource("2_0bgki")]
-position = Vector2(532, -491)
+[node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("4_pf1ik")]
@@ -119,9 +18,7 @@ position = Vector2(537, 522)
 zoom = Vector2(0.6, 0.6)
 position_smoothing_enabled = true
 
-[node name="Projectiles" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
+[node name="Lights" type="Node2D" parent="."]
 
-[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="shoot_laser" from="Player" to="." method="_on_player_shoot_laser"]
 [connection signal="throw_grenade" from="Player" to="." method="_on_player_throw_grenade"]
